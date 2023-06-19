@@ -1,8 +1,12 @@
+// imported necessary dependancies 'useSelector', 'useDispatch', and 'connect'. Actions from dataSlice included.
 import './App.css';
 import { useSelector, useDispatch, connect } from 'react-redux'
 import { clearData, fetchData, incrementId, decrementId, inputId } from './features/dataSlice'
 import { useEffect } from 'react';
 
+// App component renders the UI for the art gallery.
+// 'useDispatch' is used to get the dispatch function.
+// 'useSelector' will access the state from the Redux store. 
 function App(props) {
   const dispatch = useDispatch()
   const data = useSelector((state) => state.data)
@@ -14,7 +18,7 @@ function App(props) {
       return <p>image here</p>
     }
   }
-
+  // 'fetchData' action is used to get data from the API and updates the State.
   useEffect(() => {
     dispatch(fetchData())
   }, [props.objectId, dispatch])
@@ -39,7 +43,7 @@ function App(props) {
   );
 }
 
-
+// component is connected to Redux using 'connect' and 'mapStateToProps.'
 const mapStateToProps = (state, ownProps) => ({ objectId: state.data.objectId })
 
 export default connect(mapStateToProps)(App);

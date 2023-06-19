@@ -1,10 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit'
 
+// Initial state object is defined and includes 'objectID' and 'apiData.'
 const initialState = {
     objectId: 10245,
     apiData: {}
 }
-
+// 'data slice is created by 'createSlice' and defines the reducers' data setting, clearing data, for inputting an ID, and incrementing/decrementing the ID.
 export const dataSlice = createSlice({
     name: 'data',
     initialState,
@@ -29,6 +30,7 @@ export const dataSlice = createSlice({
 
 export const { setData, clearData, incrementId, decrementId, inputId } = dataSlice.actions
 
+// 'fetchData' thunk fetches data from API referencing 'objectID' from the state. 'stateData' action will be dispatched.
 export const fetchData = () => {
     const fetchDataThunk = async (dispatch, getState) => {
         let state = getState()

@@ -1,3 +1,4 @@
+// Renders the 'App' component. the component is wrapped in the 'Provider' component making the Redux store available.
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
